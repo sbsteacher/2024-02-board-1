@@ -1,6 +1,7 @@
 package com.green.board;
 
 import com.green.board.model.BoardInsReq;
+import com.green.board.model.BoardSelOneRes;
 import com.green.board.model.BoardSelRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -126,8 +127,14 @@ public class BoardController {
     }
 
     // 객체 > JSON 바꾸는 직렬화 작업 자동으로 해준다.
+    // localhost:8080/board
     @GetMapping
     public List<BoardSelRes> selBoardList() {
         return service.selBoardList();
+    }
+
+    @GetMapping("{boardId}")
+    public BoardSelOneRes selBoardOne(@PathVariable int boardId) {
+        return service.selBoardOne(boardId);
     }
 }

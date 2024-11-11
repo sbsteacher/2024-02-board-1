@@ -1,6 +1,8 @@
 package com.green.board;
 
+import com.green.board.model.BoardInsReq;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -86,13 +88,15 @@ import org.springframework.web.bind.annotation.RestController;
     (delete) /board - 글 삭제 (Path Variable or Query String으로 pk값 전달)
  */
 @RestController
-@RequestMapping("/board")
+@RequestMapping("board")
 public class BoardController {
 
     //insert(Create)
     @PostMapping // (post) /board 요청이 오면 이 메소드가 응답 담당자
     //@PostMapping("/board"): @RequestMapping("/board") 이 코드가 없었다면 URL을 작성해줘야 함
-    public int insBoard() {
+    //@RequstBody는 요청이 올때 데이터가 JSON형태로 오니까 거기에 맞춰서 데이터를 받자.
+    public int insBoard(@RequestBody BoardInsReq p) {
+        System.out.println(p);
         return 1;
     }
 }

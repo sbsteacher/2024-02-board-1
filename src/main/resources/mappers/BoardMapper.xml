@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--
+ 1번 줄에 빈(empty) 줄이면 에러가 난다.
  xml은 External Markup Language 줄임말. Markup Language가 표시하는 언어. 데이터를 표현하는 언어
  여러 플랫폼에서 사용할 수 있다. JSON과 비슷하다.
 
@@ -24,4 +25,10 @@
              , contents = #{contents}
              , writer = #{writer}
     </insert>
+
+    <select id="selBoardList">
+        SELECT board_id AS boardId, title, writer, created_at AS createdAt
+          FROM board
+         ORDER BY board_id DESC
+    </select>
 </mapper>

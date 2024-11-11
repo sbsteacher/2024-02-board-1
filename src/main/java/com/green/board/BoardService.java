@@ -1,8 +1,12 @@
 package com.green.board;
 
 import com.green.board.model.BoardInsReq;
+import com.green.board.model.BoardSelRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 /*
     @Service - 빈 등록, 서비스가 로직처리 담당. 로직처리가 있다면 여기서 처리한다.
                없으면 연결 작업만... 연결작업이 Controller와 Persistence(DB) 연결
@@ -16,5 +20,9 @@ public class BoardService {
 
     public int insBoard(BoardInsReq p) {
         return mapper.insBoard(p);
+    }
+
+    public List<BoardSelRes> selBoardList() {
+        return mapper.selBoardList();
     }
 }

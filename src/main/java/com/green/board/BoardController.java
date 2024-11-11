@@ -1,11 +1,11 @@
 package com.green.board;
 
 import com.green.board.model.BoardInsReq;
+import com.green.board.model.BoardSelRes;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /*
     Controller의 역할: 요청(request)을 받고 응답(Response)처리하는 객체
@@ -123,5 +123,11 @@ public class BoardController {
     public int insBoard(@RequestBody BoardInsReq p) {
         System.out.println(p);
         return service.insBoard(p);
+    }
+
+    // 객체 > JSON 바꾸는 직렬화 작업 자동으로 해준다.
+    @GetMapping
+    public List<BoardSelRes> selBoardList() {
+        return service.selBoardList();
     }
 }

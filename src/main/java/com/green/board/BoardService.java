@@ -3,6 +3,7 @@ package com.green.board;
 import com.green.board.model.BoardInsReq;
 import com.green.board.model.BoardSelOneRes;
 import com.green.board.model.BoardSelRes;
+import com.green.board.model.BoardUpdReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,10 @@ import java.util.List;
 public class BoardService {
     private final BoardMapper mapper;
 
+//    public BoardService(BoardMapper mapper) {
+//        this.mapper = mapper;
+//    }
+
     public int insBoard(BoardInsReq p) {
         return mapper.insBoard(p);
     }
@@ -29,5 +34,9 @@ public class BoardService {
 
     public BoardSelOneRes selBoardOne(int p) {
         return mapper.selBoardOne(p);
+    }
+
+    public int updBoard(BoardUpdReq p) {
+        return mapper.updBoard(p);
     }
 }
